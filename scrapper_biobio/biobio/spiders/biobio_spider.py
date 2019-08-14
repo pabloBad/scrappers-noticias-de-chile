@@ -2,7 +2,7 @@ import scrapy
 from validators import url
 from ..items import BiobioItem
 
-MAX_PAGES = 1000
+MAX_PAGES = 2000
 
 NAME = "biobio"
 
@@ -24,7 +24,6 @@ class BiobioSpider(scrapy.Spider):
 
         for item in self.parse_index(response):
             yield item
-            break
 
         current_page = int((response.css(
             ".small-content > p:nth-child(22)::text").get().split(" ")[2]))

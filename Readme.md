@@ -8,7 +8,7 @@ Projecto hecho usando los paquetes [scrapy](https://scrapy.org/) y [validators](
 
 Cada request se hace cada 5 segundos. Esto puede ser cambiado en el archivo `settings.py`, específicamente, en la variable `DOWNLOAD_DELAY`
 
-Por otra parte, el scrapper por defecto solo visitará 1000 páginas de cada categoría. Esto puede ser modificado en el archivo `biobio_spider.py`, en la variable `MAX_PAGES`
+Por otra parte, el scrapper por defecto solo visitará hasta 2000 páginas de cada categoría. Esto puede ser modificado en el archivo `biobio_spider.py`, en la variable `MAX_PAGES`
 
 
 ## Instalar los paquetes:
@@ -31,6 +31,10 @@ Ir al directorio del scrapper de la radio biobio
 
     cd scrapper_biobio
 
+Opcional. borrar archivo biobio.json para limpiar alguna ejecución anterior: 
+
+    rm biobio.json
+
 Ejecutar:
 
     scrapy crawl biobio -o biobio.json
@@ -44,15 +48,15 @@ Las noticias son guardadas en un archivo formato json. A medida que el crawler t
 {
     "author": "...",
     "author_link": "/lista/autores/...",
-    "category": "nacional",
+    "category": "...",
     "content": "...",
     "embedded_links": ["https://media.biobiochile.cl/...",
                         "https://media.biobiochile.cl/...", "..."],
-    "link": "https://www.biobiochile.cl/noticias/nacional/chile/2019/08/14/...",
+    "link": "https://www.biobiochile.cl/.../.../.../AAAA/mm/DD/...",
     "publication_date": " DD/mm/AAAA",
     "publication_hour": "HH:MM",
     "subcategory": "chile",
-    "tags": ["#Tag1", "#Tag2", "#Tag3", ...],
+    "tags": ["#Tag1", "#Tag2", "#Tag3", "..."],
     "title": "... "
 }
 ```
