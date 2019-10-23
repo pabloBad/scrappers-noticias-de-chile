@@ -1,14 +1,16 @@
 # Scrappers para sitios de noticias de Chile
 
-Actualmente, solo está implementado el de la [radio biobio](https://www.biobiochile.cl/), los cuales publican su contenido bajo la licencia Creative Commons (CC-BY-NC).
+Actualmente, están implementados los de la [Radio Biobio](https://www.biobiochile.cl/) y de [El Desconcierto](https://www.eldesconcierto.cl/noticias/pais/).
 
 Projecto hecho usando los paquetes [scrapy](https://scrapy.org/) y [validators](https://pypi.org/project/validators/), sobre [python 3.7.3](https://www.python.org/)
 
 ## Configuración
 
-Cada request se hace cada 5 segundos. Esto puede ser cambiado en el archivo `settings.py`, específicamente, en la variable `DOWNLOAD_DELAY`
+Cada request se hace cada 1 segundo. Esto puede ser cambiado en el archivo `settings.py`, específicamente, en la variable `DOWNLOAD_DELAY`
 
-Por otra parte, el scrapper por defecto solo visitará hasta 2000 páginas de cada categoría. Esto puede ser modificado en el archivo `biobio_spider.py`, en la variable `MAX_PAGES`
+Por otra parte, los scrappers por defecto solo visitarán hasta `N` páginas de cada categoría, lo que puede ser modificado en el los mismos archivos `*_spider.py`, específicamente en la variable `MAX_PAGES`
+
+Adicionalmente, los scrappers pueden ser configurados para que inicien sus rutinas en páginas personalizadas. Dados los recientes hechos (octubre 2019), se dejarán configuradas los scrappers para que recolecten información sobre la crisis que acontece en chile.
 
 
 ## Instalar los paquetes:
@@ -37,7 +39,11 @@ Opcional. borrar archivo biobio.json para limpiar alguna ejecución anterior:
 
 Ejecutar:
 
+    # Crawler para la biobio:
     scrapy crawl biobio -o biobio.json
+
+    # Crawler para el desconcierto:
+    scrapy crawl el_desconcierto -o el_desconcierto.json
 
 ## Formato de las noticias:
 

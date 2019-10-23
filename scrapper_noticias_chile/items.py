@@ -8,11 +8,14 @@
 import scrapy
 
 
-class BiobioItem(scrapy.Item):
+class NewsItem(scrapy.Item):
     author = scrapy.Field()
     author_link = scrapy.Field()
     category = scrapy.Field()
     title = scrapy.Field()
+    subtitle = scrapy.Field()
+    tags_links = scrapy.Field()
+    author_twitter = scrapy.Field()
     link = scrapy.Field()
     publication_date = scrapy.Field()
     publication_hour = scrapy.Field()

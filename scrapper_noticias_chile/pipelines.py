@@ -6,6 +6,6 @@
 # See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 
 
-class BiobioPipeline(object):
+class ScrapperNoticiasChilePipeline(object):
     def process_item(self, item, spider):
         return item
